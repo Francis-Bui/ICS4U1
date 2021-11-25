@@ -6,21 +6,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Globalization;
 using System.IO;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Security;
-using System.Threading.Tasks;
 using proj = WindowsFormsApplication1.Properties;
-using Microsoft.VisualBasic;
 
 namespace WindowsFormsApplication1
 {
 
     public partial class Form1 : Form
     {
+
+    WMPLib.WindowsMediaPlayer Player;
 
     //private Bitmap animatedImage = Image.FromFile(@"C:\Users\Francis Bui\Documents\Visual Studio 2010\Projects\GPong Francis\GPong Francis\Resources\explosion.gif");
 
@@ -36,7 +31,6 @@ namespace WindowsFormsApplication1
     private bool shootL = false;
     private bool shootR = false;
     private bool start = true;
-    private bool hit = false;
     private bool laserLClear = true;
     private bool laserRClear = true;
     private bool endRoundL = false;
@@ -288,7 +282,7 @@ namespace WindowsFormsApplication1
         if (e.KeyData == Keys.Space & laserLClear == true)
         {
             shootL = true;
-            //this.Computer.Audio.Play(proj.Resources.laser, AudioPlayMode.Background);
+            PlayFile(@"C:\Users\Francis\Documents\Visual Studio 2010\Projects\PongConversionBui\PongConversionBui\Resources\laser.wav");
             rLaserL = new Rectangle(rPadL.X + 20, rPadL.Y + 60, 25, 10);
             laserLClear = false;
         }
@@ -297,7 +291,7 @@ namespace WindowsFormsApplication1
         if (e.KeyData == Keys.NumPad0 & laserRClear == true)
         {
             shootR = true;
-            //proj.Computer.Audio.Play(proj.Resources.laser, AudioPlayMode.Background);
+            PlayFile(@"C:\Users\Francis\Documents\Visual Studio 2010\Projects\PongConversionBui\PongConversionBui\Resources\laser.wav");
             rLaserR = new Rectangle(rPadR.X + 20, rPadR.Y + 60, 25, 10);
             laserRClear = false;
         }
@@ -447,5 +441,19 @@ namespace WindowsFormsApplication1
         if (rQuit.Contains(e.Location))
             System.Environment.Exit(0);
     }
+
+    private void PlayFile(String url)
+    {
+        Player = new WMPLib.WindowsMediaPlayer();
+        Player.MediaError +=
+            new WMPLib._WMPOCXEvents_MediaErrorEventHandler(Player_MediaError);
+        Player.URL = url;
+    }
+
+    private void Player_MediaError(object pMediaObject)
+    {
+        MessageBox.Show("Cannot play media file.");
+    }
+
     }
 }
