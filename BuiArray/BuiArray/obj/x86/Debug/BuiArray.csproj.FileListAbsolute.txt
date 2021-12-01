@@ -12,3 +12,4 @@ C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\obj\x86
 C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\bin\Debug\BuiArray.exe
 C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\bin\Debug\BuiArray.pdb
 C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\obj\x86\Debug\BuiArray.pdb
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\BuiArray\BuiArray\obj\x86\Debug\BuiArray.csprojResolveAssemblyReference.cache
