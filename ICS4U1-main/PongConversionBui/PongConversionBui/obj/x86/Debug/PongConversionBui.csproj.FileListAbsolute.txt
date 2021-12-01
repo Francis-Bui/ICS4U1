@@ -1,0 +1,9 @@
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\PongConversionBui\PongConversionBui\bin\Debug\PongConversionBui.exe
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\PongConversionBui\PongConversionBui\bin\Debug\PongConversionBui.pdb
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\PongConversionBui\PongConversionBui\obj\x86\Debug\Interop.WMPLib.dll
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\PongConversionBui\PongConversionBui\obj\x86\Debug\PongConversionBui.csproj.ResolveComReference.cache
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\PongConversionBui\PongConversionBui\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\PongConversionBui\PongConversionBui\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\PongConversionBui\PongConversionBui\obj\x86\Debug\PongConversionBui.csproj.GenerateResource.Cache
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\PongConversionBui\PongConversionBui\obj\x86\Debug\PongConversionBui.exe
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\PongConversionBui\PongConversionBui\obj\x86\Debug\PongConversionBui.pdb

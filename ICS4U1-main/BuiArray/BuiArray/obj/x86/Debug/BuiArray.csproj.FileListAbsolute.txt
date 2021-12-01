@@ -1,0 +1,15 @@
+C:\Users\Francis\AppData\Local\Temporary Projects\BuiArray\bin\Debug\BuiArray.exe
+C:\Users\Francis\AppData\Local\Temporary Projects\BuiArray\bin\Debug\BuiArray.pdb
+C:\Users\Francis\AppData\Local\Temporary Projects\BuiArray\obj\x86\Debug\BuiArray.Form1.resources
+C:\Users\Francis\AppData\Local\Temporary Projects\BuiArray\obj\x86\Debug\BuiArray.Properties.Resources.resources
+C:\Users\Francis\AppData\Local\Temporary Projects\BuiArray\obj\x86\Debug\BuiArray.csproj.GenerateResource.Cache
+C:\Users\Francis\AppData\Local\Temporary Projects\BuiArray\obj\x86\Debug\BuiArray.exe
+C:\Users\Francis\AppData\Local\Temporary Projects\BuiArray\obj\x86\Debug\BuiArray.pdb
+C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\obj\x86\Debug\BuiArray.exe
+C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\obj\x86\Debug\BuiArray.Form1.resources
+C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\obj\x86\Debug\BuiArray.Properties.Resources.resources
+C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\obj\x86\Debug\BuiArray.csproj.GenerateResource.Cache
+C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\bin\Debug\BuiArray.exe
+C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\bin\Debug\BuiArray.pdb
+C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\obj\x86\Debug\BuiArray.pdb
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\BuiArray\BuiArray\obj\x86\Debug\BuiArray.csprojResolveAssemblyReference.cache
