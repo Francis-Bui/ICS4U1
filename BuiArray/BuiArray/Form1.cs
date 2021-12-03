@@ -13,20 +13,19 @@ namespace BuiArray
     {
 
         int spc = 110;
+        int k;
         int prevCordX = -110;
         int prevCordY = 0;
 
         Point[] initCord = new Point[9];
         Point prevLoc = new Point();
         Rectangle[] rect = new Rectangle[9];
-        Rectangle chosen = new Rectangle();
         Boolean[] chk = new Boolean[9];
         Image[] img = new Image[10];
         Image[] imgArray = new Image[9];
         Image P = Properties.Resources.C;
-        Image prevImg;
 
-        bool genFlag = false, firstFlag = false;
+        bool genFlag = false, firstFlag = false, passFlag = false;
 
         public Form1() { InitializeComponent(); this.BackColor = Color.Aqua;
 
@@ -37,7 +36,6 @@ namespace BuiArray
 
 
         private void CanvasPaint(object sender, PaintEventArgs e) {for (int i = 0; i < 9; i++) {if (i == 3 || i == 6) {prevCordX = -110; prevCordY = prevCordY + spc;}
-
         if (genFlag == false) { rect[i].Location = new Point(prevCordX + spc, prevCordY); rect[i].Size = new Size(100, 100); e.Graphics.DrawImage(img[i], rect[i]);}
 
                     initCord[i] = rect[i].Location;
@@ -46,16 +44,11 @@ namespace BuiArray
                     e.Graphics.DrawImage(img[i], rect[i]);
                     if (i == 8) {genFlag = true;}
                     if (genFlag == true) {foreach (Rectangle Value in rect)
-                    if (chk.Count(c => c) == 1) firstFlag = true;
-                    else firstFlag = false;
                         if (chk[i] == true) {
-                                if ((chk.Count(c => c) >= 3)) for (int c = 0; c < chk.Length; c++) { chk[c] = false; }
-                                if (firstFlag == true) { prevLoc = rect[i].Location; chosen = rect[i]; prevImg = img[i];}
-                                else if (i >= 0 && i <= 5 && (chk[i + 3] == true || chk[i + 1] == true)) { chosen.Location = rect[i].Location; rect[i].Location = prevLoc; e.Graphics.DrawImage(img[i], chosen); e.Graphics.DrawImage(prevImg, rect[i]); }
-                                else if (i >= 3 && i <= 8 && (chk[i - 3] == true || chk[i - 1] == true)) { chosen.Location = rect[i].Location; rect[i].Location = prevLoc; e.Graphics.DrawImage(img[i], chosen); e.Graphics.DrawImage(prevImg, rect[i]); }
-                                else if (i >= 1 && chk[i - 1] == true) { chosen.Location = rect[i].Location; rect[i].Location = prevLoc; e.Graphics.DrawImage(img[i], chosen); e.Graphics.DrawImage(prevImg, rect[i]); }
-                                else if (i <= 7 && chk[i + 1] == true) { chosen.Location = rect[i].Location; rect[i].Location = prevLoc; e.Graphics.DrawImage(img[i], chosen); e.Graphics.DrawImage(prevImg, rect[i]); }
-                                else if ((chk.Count(c => c) >= 2)) for (int c = 0; c < chk.Length; c++) { chk[c] = false;}
+                                if (chk.Count(c => c) == 0 && passFlag == false) firstFlag = true;
+                                if (firstFlag == true) { prevLoc = rect[i].Location; k = i; firstFlag = false; passFlag = true; }
+                                if ((rect[i].X == rect[k].X || rect[i].Y == rect[k].Y)) { rect[k].Location = rect[i].Location; rect[i].Location = prevLoc; passFlag = false; for (int c = 0; c < chk.Length; c++) { chk[c] = false; } }
+                                else if ((chk.Count(c => c) == 2)) for (int c = 0; c < chk.Length; c++) { chk[c] = false; }
                             }
                         }
                     }
@@ -64,6 +57,23 @@ namespace BuiArray
         private void RectMouseDown(object sender, MouseEventArgs e) { Point relativeMouse = this.PointToClient(Cursor.Position); int i = 0;
         foreach (Rectangle Value in rect) {if ((relativeMouse.X <= (rect[i].X + rect[i].Width) && relativeMouse.X >= rect[i].X) && (relativeMouse.Y <= (rect[i].Y + rect[i].Height) && relativeMouse.Y >= rect[i].Y)) {chk[i] = true;}
                 else i++;}
+            this.Refresh();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Text = firstFlag.ToString();
+        }
+
+        private void label1_TextChanged(object sender, EventArgs e)
+        {
+            label1.Text = firstFlag.ToString();
+            this.Refresh();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            label1.Text = firstFlag.ToString();
             this.Refresh();
         }
 
