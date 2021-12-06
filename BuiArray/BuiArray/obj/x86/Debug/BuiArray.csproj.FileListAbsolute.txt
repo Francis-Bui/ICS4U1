@@ -13,3 +13,11 @@ C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\bin\Deb
 C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\bin\Debug\BuiArray.pdb
 C:\Users\Francis\documents\visual studio 2010\Projects\BuiArray\BuiArray\obj\x86\Debug\BuiArray.pdb
 C:\Users\Francis\Documents\Visual Studio 2010\Projects\BuiArray\BuiArray\obj\x86\Debug\BuiArray.csprojResolveAssemblyReference.cache
+C:\Users\witzp\ICS4U1\BuiArray\BuiArray\obj\x86\Debug\BuiArray.exe
+C:\Users\witzp\ICS4U1\BuiArray\BuiArray\obj\x86\Debug\BuiArray.pdb
+C:\Users\witzp\ICS4U1\BuiArray\BuiArray\obj\x86\Debug\BuiArray.Form1.resources
+C:\Users\witzp\ICS4U1\BuiArray\BuiArray\obj\x86\Debug\BuiArray.Properties.Resources.resources
+C:\Users\witzp\ICS4U1\BuiArray\BuiArray\obj\x86\Debug\BuiArray.csproj.GenerateResource.cache
+C:\Users\witzp\ICS4U1\BuiArray\BuiArray\bin\Debug\BuiArray.exe
+C:\Users\witzp\ICS4U1\BuiArray\BuiArray\bin\Debug\BuiArray.pdb
+C:\Users\witzp\ICS4U1\BuiArray\BuiArray\obj\x86\Debug\BuiArray.csprojResolveAssemblyReference.cache
