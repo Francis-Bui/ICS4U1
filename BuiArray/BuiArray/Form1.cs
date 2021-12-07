@@ -4,17 +4,18 @@ using System.Linq;
 using System.Windows.Forms;
 namespace BuiArray {
   public partial class Form1: Form {
-    int spc = 110, k, prevCordX = -110, prevCordY;
+
+    Random rnd = new Random();
+    int spc = 110, k, w, prevCordX = -110, prevCordY;
     Point[] initCord = new Point[9];
     Point prevLoc = new Point();
     Rectangle[] rect = new Rectangle[9];
-    Boolean[] chk = new Boolean[9];
-    bool genFlag = false;
+    Boolean[] chk = new Boolean[9], fin = new Boolean[9];
+    bool genFlag, sblFlag;
     Image[] img = new Image[10], imgArray = new Image[9];
     Image P = Properties.Resources.C;
     public Form1() {
       InitializeComponent();
-      this.BackColor = Color.Black;
       int tileW = P.Width / 3, tileH = P.Height / 3;
       for (int j = 0; j < 3; j++) {
         for (int i = 0; i < 3; i++) {
@@ -37,23 +38,32 @@ namespace BuiArray {
         if (genFlag == false) {
           rect[i].Location = new Point(prevCordX + spc, prevCordY);
           rect[i].Size = new Size(100, 100);
-          e.Graphics.DrawImage(img[i], rect[i]);
           initCord[i] = rect[i].Location;
         }
         prevCordX = rect[i].Location.X;
         prevCordY = rect[i].Location.Y;
         e.Graphics.DrawImage(img[i], rect[i]);
-        if (rect[i].Location == initCord[i]) {}
         if (i == 8) {
           genFlag = true;
         }
         if (genFlag == true) {
+            if (sblFlag == false) {
+            for (int f = 0; f < 9; f++) {
+            int r = rnd.Next(0,8);
+            prevLoc = rect[f].Location;
+            rect[f].Location = rect[r].Location;
+            rect[r].Location = prevLoc;
+            this.Refresh();
+            }
+            this.BackColor = Color.Black;
+            sblFlag = true;
+        }
           foreach(Rectangle Value in rect) if (chk[i] == true) {
             if (chk.Count(c => c) == 1) {
               prevLoc = rect[i].Location;
               k = i;
             }
-            if ((chk.Count(c => c) == 2) && (((rect[k].X == (rect[i].X - spc)) || (rect[k].Y == (rect[i].Y - spc)) || (rect[k].X == (rect[i].X + spc)) || (rect[k].Y == (rect[i].Y + spc))))) {
+            if ((chk.Count(c => c) >= 2) && (((rect[k].X == (rect[i].X - spc)) || (rect[k].Y == (rect[i].Y - spc)) || (rect[k].X == (rect[i].X + spc)) || (rect[k].Y == (rect[i].Y + spc))))) {
               rect[k].Location = rect[i].Location;
               rect[i].Location = prevLoc;
               for (int c = 0; c < chk.Length; c++) {
@@ -62,6 +72,16 @@ namespace BuiArray {
               this.Refresh();
             }
             if (chk.Count(c => c) != 0) e.Graphics.DrawRectangle(Pens.White, rect[k]);
+            if (rect[i].Location == initCord[i] && sblFlag == true) {
+            fin[i] = true;
+            }
+            else {
+            fin[i] = false;
+            }
+            if ((fin.Count(c => c) >= 4)) {
+              this.BackColor = Color.Green;
+              sblFlag = false;
+            }
           }
         }
       }
