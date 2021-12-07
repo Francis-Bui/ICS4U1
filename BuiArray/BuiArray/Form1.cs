@@ -4,11 +4,9 @@ using System.Linq;
 using System.Windows.Forms;
 namespace BuiArray {
   public partial class Form1: Form {
-
     Random rnd = new Random();
-    int spc = 110, k, w, prevCordX = -110, prevCordY;
-    Point[] initCord = new Point[9];
-    Point prevLoc = new Point();
+    int spc = 110, k, prevCordX = -110, prevCordY;
+    Point[] initCord = new Point[9]; Point prevLoc = new Point();
     Rectangle[] rect = new Rectangle[9];
     Boolean[] chk = new Boolean[9], fin = new Boolean[9];
     bool genFlag, sblFlag;
@@ -72,15 +70,17 @@ namespace BuiArray {
               this.Refresh();
             }
             if (chk.Count(c => c) != 0) e.Graphics.DrawRectangle(Pens.White, rect[k]);
-            if (rect[i].Location == initCord[i] && sblFlag == true) {
-            fin[i] = true;
+            for (int z = 0; z < 9; z++){
+            if (rect[z].Location == initCord[z] && sblFlag == true) {fin[z] = true; }
+            else if (rect[z].Location != initCord[z] && sblFlag == true) {
+            fin[z] = false;
+              }
             }
-            else {
-            fin[i] = false;
-            }
-            if ((fin.Count(c => c) >= 4)) {
-              this.BackColor = Color.Green;
+            if ((fin.Count(c => c) >= 8)) {
               sblFlag = false;
+              for (int c = 0; c < chk.Length; c++) {
+                fin[c] = false;
+              }
             }
           }
         }
