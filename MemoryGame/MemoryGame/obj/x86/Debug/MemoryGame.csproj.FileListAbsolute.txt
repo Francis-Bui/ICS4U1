@@ -1,0 +1,7 @@
+C:\Users\Francis\documents\visual studio 2010\Projects\MemoryGame\MemoryGame\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Francis\documents\visual studio 2010\Projects\MemoryGame\MemoryGame\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Francis\documents\visual studio 2010\Projects\MemoryGame\MemoryGame\obj\x86\Debug\MemoryGame.csproj.GenerateResource.Cache
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\MemoryGame\MemoryGame\bin\Debug\MemoryGame.exe
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\MemoryGame\MemoryGame\bin\Debug\MemoryGame.pdb
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\MemoryGame\MemoryGame\obj\x86\Debug\MemoryGame.exe
+C:\Users\Francis\Documents\Visual Studio 2010\Projects\MemoryGame\MemoryGame\obj\x86\Debug\MemoryGame.pdb
