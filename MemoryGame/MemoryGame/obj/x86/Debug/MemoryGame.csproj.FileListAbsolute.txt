@@ -5,3 +5,11 @@ C:\Users\Francis\Documents\Visual Studio 2010\Projects\MemoryGame\MemoryGame\bin
 C:\Users\Francis\Documents\Visual Studio 2010\Projects\MemoryGame\MemoryGame\bin\Debug\MemoryGame.pdb
 C:\Users\Francis\Documents\Visual Studio 2010\Projects\MemoryGame\MemoryGame\obj\x86\Debug\MemoryGame.exe
 C:\Users\Francis\Documents\Visual Studio 2010\Projects\MemoryGame\MemoryGame\obj\x86\Debug\MemoryGame.pdb
+C:\Users\witzp\ICS4U1\MemoryGame\MemoryGame\bin\Debug\MemoryGame.exe
+C:\Users\witzp\ICS4U1\MemoryGame\MemoryGame\bin\Debug\MemoryGame.pdb
+C:\Users\witzp\ICS4U1\MemoryGame\MemoryGame\obj\x86\Debug\MemoryGame.csprojResolveAssemblyReference.cache
+C:\Users\witzp\ICS4U1\MemoryGame\MemoryGame\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\witzp\ICS4U1\MemoryGame\MemoryGame\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\witzp\ICS4U1\MemoryGame\MemoryGame\obj\x86\Debug\MemoryGame.csproj.GenerateResource.Cache
+C:\Users\witzp\ICS4U1\MemoryGame\MemoryGame\obj\x86\Debug\MemoryGame.exe
+C:\Users\witzp\ICS4U1\MemoryGame\MemoryGame\obj\x86\Debug\MemoryGame.pdb
