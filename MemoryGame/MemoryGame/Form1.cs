@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
         Random r = new Random();
         Rectangle[] rect = new Rectangle[10];
         Boolean[] chk = new Boolean[10];
-        Boolean gen;
+        Boolean gen, dye;
         public Form1() {
             InitializeComponent();
         }
@@ -24,10 +24,8 @@ namespace WindowsFormsApplication1
         }
         private void Form1_Paint(object sender, PaintEventArgs e) {
         Generate(e);
-        Check(e);
         }
         private void Generate(PaintEventArgs e) {
-
             Font drawFont = new Font("Arial", 50);
             if (gen == false) {
             for (int x = 0; x < 5; x++) {
@@ -44,7 +42,30 @@ namespace WindowsFormsApplication1
                     }
                     e.Graphics.FillRectangle(Brushes.Black, rect[i]);
                     e.Graphics.DrawString(ListA.ElementAt(i).ToString(), drawFont, Brushes.Blue, rect[i]);
+                    foreach(Rectangle Value in rect) if (chk[i] == true){
+
+
+                        if (chk.Count(c => c) == 1) {
+                        w = i;
+                        e.Graphics.DrawRectangle(Pens.Blue, rect[w]);
+                        }
+
+                        if ((chk.Count(c => c) == 2) && (ListA.ElementAt(i) == ListA.ElementAt(w))) {
+                            e.Graphics.DrawRectangle(Pens.Green, rect[i]);
+                            e.Graphics.DrawRectangle(Pens.Green, rect[w]);
+                            dye = true;
+                            // PUT DELAY HERE
+                        }
+
+                        if ((chk.Count(c => c) >= 3)) {
+                            for (int c = 0; c < chk.Length; c++) {
+                            chk[c] = false;
+                            }
+                        }
+
+                        //if (chk.Count(c => c) != 0) {e.Graphics.DrawRectangle(Pens.Blue, rect[w]);}
                 }
+            }
             gen = true;
         }
 
@@ -57,23 +78,6 @@ namespace WindowsFormsApplication1
         } else i++; this.Refresh();
       }
     }
-        private void Check(PaintEventArgs e) {
-            for (int f = 0; f < 10; f++) {
-                foreach(Rectangle Value in rect) { 
-                    if (chk.Count(c => c) == 1) {
-                    w = f;
-                }
-                if ((chk.Count(c => c) == 2) && (ListA[w] == ListA[f])) {
-                    e.Graphics.DrawRectangle(Pens.Red, rect[f]);
-                    e.Graphics.DrawRectangle(Pens.Red, rect[w]);
-                }
-                if ((chk.Count(c => c) == 3)) {
-                for (int c = 0; c < chk.Length; c++) {
-                    chk[c] = false;
-                }
-                }
-                }
-            }
-        }
+
     }
 }
