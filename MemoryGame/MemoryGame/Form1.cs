@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace WindowsFormsApplication1
 {
@@ -17,15 +18,18 @@ namespace WindowsFormsApplication1
         Rectangle[] rect = new Rectangle[10];
         Boolean[] chk = new Boolean[10];
         Boolean gen, dye;
+
+        string first;
         public Form1() {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e) {
         }
         private void Form1_Paint(object sender, PaintEventArgs e) {
-        Generate(e);
+            Generate(e);
         }
         private void Generate(PaintEventArgs e) {
+            this.BackColor = Color.Beige;
             Font drawFont = new Font("Arial", 50);
             if (gen == false) {
             for (int x = 0; x < 5; x++) {
@@ -39,28 +43,41 @@ namespace WindowsFormsApplication1
                     rect[i].Location = new Point(rect[p].X + spc, 100);
                     rect[i].Size = new Size(100, 100);
                     p = i; 
-                    }
+                    } 
                     e.Graphics.FillRectangle(Brushes.Black, rect[i]);
-                    e.Graphics.DrawString(ListA.ElementAt(i).ToString(), drawFont, Brushes.Blue, rect[i]);
+
                     foreach(Rectangle Value in rect) if (chk[i] == true){
-
-
-                        if (chk.Count(c => c) == 1) {
-                        w = i;
-                        e.Graphics.DrawRectangle(Pens.Blue, rect[w]);
-                        }
-
-                        if ((chk.Count(c => c) == 2) && (ListA.ElementAt(i) == ListA.ElementAt(w))) {
-                            e.Graphics.DrawRectangle(Pens.Green, rect[i]);
-                            e.Graphics.DrawRectangle(Pens.Green, rect[w]);
-                            dye = true;
-                            // PUT DELAY HERE
-                        }
-
-                        if ((chk.Count(c => c) >= 3)) {
-                            for (int c = 0; c < chk.Length; c++) {
-                            chk[c] = false;
+                    
+                            if (chk.Count(c => c) == 1) {
+                            w = i;
+                            e.Graphics.DrawRectangle(Pens.Blue, rect[w]);
+                            e.Graphics.DrawString(ListA.ElementAt(w).ToString(), drawFont, Brushes.Blue, rect[w]);
+                            
                             }
+                            if ((chk.Count(c => c) == 2)) {
+                                string first = ListA.ElementAt(w).ToString();
+                                string second = ListA.ElementAt(i).ToString();
+                                if (string.Equals(second, first) == true) {
+                                    dye = true;
+                                }
+                                else if (string.Equals(second, first) == false) {
+                                    dye = false; 
+                                }
+                                e.Graphics.DrawString(ListA.ElementAt(w).ToString(), drawFont, Brushes.Blue, rect[w]);
+                                e.Graphics.DrawString(ListA.ElementAt(i).ToString(), drawFont, Brushes.Blue, rect[i]);
+                                //Thread.Sleep(1000);
+                                // PUT DELAY HERE
+                            }
+
+                            if ((chk.Count(c => c) >= 3)) {
+                                for (int c = 0; c < chk.Length; c++) {
+                                chk[c] = false;
+                                }
+                            }
+
+                        if (dye == true){
+                            e.Graphics.FillRectangle(Brushes.Green, rect[w]);
+                            e.Graphics.FillRectangle(Brushes.Green, rect[i]);
                         }
 
                         //if (chk.Count(c => c) != 0) {e.Graphics.DrawRectangle(Pens.Blue, rect[w]);}
