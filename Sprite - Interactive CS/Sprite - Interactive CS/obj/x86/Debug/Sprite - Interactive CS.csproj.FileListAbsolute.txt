@@ -1,0 +1,8 @@
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\bin\Debug\Sprite - Interactive CS.exe
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\bin\Debug\Sprite - Interactive CS.pdb
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Debug\Sprite - Interactive CS.csprojResolveAssemblyReference.cache
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Debug\Sprite___Interactive_CS.Form1.resources
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Debug\Sprite___Interactive_CS.Properties.Resources.resources
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Debug\Sprite - Interactive CS.csproj.GenerateResource.Cache
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Debug\Sprite - Interactive CS.exe
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Debug\Sprite - Interactive CS.pdb

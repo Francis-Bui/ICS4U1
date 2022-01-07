@@ -1,0 +1,7 @@
+C:\Users\DC\documents\visual studio 2010\Projects\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite___Interactive_CS.Form1.resources
+C:\Users\DC\documents\visual studio 2010\Projects\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite___Interactive_CS.Properties.Resources.resources
+C:\Users\DC\documents\visual studio 2010\Projects\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite - Interactive CS.csproj.GenerateResource.Cache
+C:\Users\DC\documents\visual studio 2010\Projects\Sprite - Interactive CS\Sprite - Interactive CS\bin\Release\Sprite - Interactive CS.exe
+C:\Users\DC\documents\visual studio 2010\Projects\Sprite - Interactive CS\Sprite - Interactive CS\bin\Release\Sprite - Interactive CS.pdb
+C:\Users\DC\documents\visual studio 2010\Projects\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite - Interactive CS.exe
+C:\Users\DC\documents\visual studio 2010\Projects\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite - Interactive CS.pdb
