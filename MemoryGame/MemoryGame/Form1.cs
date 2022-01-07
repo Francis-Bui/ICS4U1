@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Threading;
 
 namespace WindowsFormsApplication1
 {
@@ -17,9 +13,8 @@ namespace WindowsFormsApplication1
         Random r = new Random();
         Rectangle[] rect = new Rectangle[10];
         Boolean[] chk = new Boolean[10];
+        Boolean[] state = new Boolean[10];
         Boolean gen, dye;
-
-        string first;
         public Form1() {
             InitializeComponent();
         }
@@ -42,9 +37,18 @@ namespace WindowsFormsApplication1
                     if (gen == false) {
                     rect[i].Location = new Point(rect[p].X + spc, 100);
                     rect[i].Size = new Size(100, 100);
-                    p = i; 
+                    p = i;
+                    state[i] = false;
                     } 
-                    e.Graphics.FillRectangle(Brushes.Black, rect[i]);
+
+                    if (state[i] == true){
+                        e.Graphics.FillRectangle(Brushes.Green, rect[w]);
+                        e.Graphics.FillRectangle(Brushes.Green, rect[i]);
+                    }
+                    if (state[i] == false){
+                        e.Graphics.FillRectangle(Brushes.Black, rect[w]);
+                        e.Graphics.FillRectangle(Brushes.Black, rect[i]);
+                    }
 
                     foreach(Rectangle Value in rect) if (chk[i] == true){
                     
@@ -52,20 +56,28 @@ namespace WindowsFormsApplication1
                             w = i;
                             e.Graphics.DrawRectangle(Pens.Blue, rect[w]);
                             e.Graphics.DrawString(ListA.ElementAt(w).ToString(), drawFont, Brushes.Blue, rect[w]);
-                            
                             }
+
                             if ((chk.Count(c => c) == 2)) {
                                 string first = ListA.ElementAt(w).ToString();
                                 string second = ListA.ElementAt(i).ToString();
-                                if (string.Equals(second, first) == true) {
-                                    dye = true;
+
+                                if ((string.Equals(second, first) == false)) {
+                                    state[w] = false;
+                                    state[i] = false;
+                                    first = "Fill";
+                                    second = string.Empty;
                                 }
-                                else if (string.Equals(second, first) == false) {
-                                    dye = false; 
+
+                                if ((string.Equals(second, first) == true)) {
+                                    state[w] = true;
+                                    state[i] = true;
+                                    first = "Fill";
+                                    second = string.Empty;
                                 }
+                                
                                 e.Graphics.DrawString(ListA.ElementAt(w).ToString(), drawFont, Brushes.Blue, rect[w]);
                                 e.Graphics.DrawString(ListA.ElementAt(i).ToString(), drawFont, Brushes.Blue, rect[i]);
-                                //Thread.Sleep(1000);
                                 // PUT DELAY HERE
                             }
 
@@ -75,13 +87,8 @@ namespace WindowsFormsApplication1
                                 }
                             }
 
-                        if (dye == true){
-                            e.Graphics.FillRectangle(Brushes.Green, rect[w]);
-                            e.Graphics.FillRectangle(Brushes.Green, rect[i]);
-                        }
-
                         //if (chk.Count(c => c) != 0) {e.Graphics.DrawRectangle(Pens.Blue, rect[w]);}
-                }
+                    }
             }
             gen = true;
         }
