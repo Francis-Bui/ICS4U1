@@ -77,7 +77,6 @@ namespace Sprite___Interactive_CS
 
             rProf = new Rectangle(100, 100, profWidth, profHeight);
             rBeaker = new Rectangle(200, 200, imgBeaker.Width, imgBeaker.Height);
-            rExplode = new Rectangle(rBeaker.X - rBeaker.Width / 2, rBeaker.Y, explodeWidth * 2, explodeHeight * 2);
             profVel = 10;
 
             InitializeComponent();
@@ -87,13 +86,19 @@ namespace Sprite___Interactive_CS
         {
             int panelWidth = buttonNumberX * buttonSize;
             int panelHeight = buttonNumberY * buttonSize;
-            this.Width = panelWidth + 50;
-            this.Height = panelHeight + 100;
+            this.CenterToScreen();
+            this.Size = new Size(panelWidth + 50, panelHeight + 150);
 
             pnlMayinlar.Size = new Size(panelWidth, panelHeight);
             pnlMayinlar.Left = 20;
             pnlMayinlar.Top = 85;
             pnlMayinlar.BackColor = Color.Black;
+
+            pnlGraphics.Size = new Size(1300, 1000);
+            pnlGraphics.Left = 0;
+            pnlGraphics.Top = 0;
+            pnlGraphics.BackColor = Color.Transparent;
+
 
             InitializeGame();
 
@@ -104,6 +109,7 @@ namespace Sprite___Interactive_CS
             label1.Text = "Remaining Squares: " + game.NumberOfNotOpenedSafetySquare().ToString();
             label1.Location = new Point(panelWidth - label1.Width, lblTop);
             pnlMayinlar.Show();
+            pnlGraphics.Show();
         }
         private void tmrProf_Tick(object sender, EventArgs e)
         {
@@ -162,6 +168,7 @@ namespace Sprite___Interactive_CS
             game = new Game(buttonNumberX, buttonNumberY, mineNumber);
             allButtons = new Button[buttonNumberY, buttonNumberX];
             pnlMayinlar.Enabled = true;
+            pnlGraphics.Enabled = true;
 
             for (int i = 0; i < game.Squares.GetLength(0); i++)
             {
@@ -170,6 +177,7 @@ namespace Sprite___Interactive_CS
                     Button button = CreateButton(j, i);
                     squaresInButtons.Add(button, game.Square(j, i));
                     pnlMayinlar.Controls.Add(button);
+                    
                 }
             }
 
@@ -267,6 +275,7 @@ namespace Sprite___Interactive_CS
                     //in order to their distance first clicked mine
                     IEnumerable<Squares> inLineMines = game.MinesToExplode(square);
                     ExplodeAllMines(inLineMines);
+                    explode = true;
                 }
 
 
@@ -333,6 +342,7 @@ namespace Sprite___Interactive_CS
             foreach (Squares item in inLineMines)
             {
                 Button willBeDetoneted = allButtons[item.Location.Y, item.Location.X];
+                rExplode = new Rectangle(item.Location.X, item.Location.Y, explodeWidth * 2, explodeHeight * 2);
                 willBeDetoneted.BackgroundImage = Properties.Resources.detonatedmine;
                 willBeDetoneted.Enabled = false;
                 willBeDetoneted.Update();
@@ -368,8 +378,8 @@ namespace Sprite___Interactive_CS
         Color SquareTextColor(int mineNumber)
         {
             Color[] colors = {
-             Color.FromArgb(180, 180, 180) ,
-             Color.FromArgb(20, 110, 250) ,
+             Color.FromArgb(180, 180, 180),
+             Color.FromArgb(20, 110, 250),
              Color.FromArgb(10, 220, 20),
              Color.FromArgb(250, 20, 20),
              Color.FromArgb(150, 20, 60),
@@ -392,7 +402,7 @@ namespace Sprite___Interactive_CS
                 if (count2 >= (totalRows2 * totalCols2))
                 {
                     count2 = 0;
-                    explode = false;
+
                     tmrProf.Start();
                 }
 
@@ -407,7 +417,7 @@ namespace Sprite___Interactive_CS
             }
         }
 
-        /*private void Form1_Paint(object sender, PaintEventArgs e)
+        private void pnlGraphics_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawImage(imgProf, rProf, new RectangleF(col * profWidth, row * profHeight, profWidth, profHeight), GraphicsUnit.Pixel);
 
@@ -420,11 +430,11 @@ namespace Sprite___Interactive_CS
             {
                 e.Graphics.DrawImage(imgBeaker, rBeaker);
             }
-        }*/
+        }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Down)
+            if (e.KeyData == Keys.S)
             {
                 goDown = true;
                 row = 2;
@@ -432,21 +442,21 @@ namespace Sprite___Interactive_CS
 
             }
 
-            if (e.KeyData == Keys.Up)
+            if (e.KeyData == Keys.W)
             {
                 goUp = true;
                 row = 0;
                 tmrProf.Start();
             }
 
-            if (e.KeyData == Keys.Left)
+            if (e.KeyData == Keys.A)
             {
                 goLeft = true;
                 row = 1;
                 tmrProf.Start();
             }
 
-            if (e.KeyData == Keys.Right)
+            if (e.KeyData == Keys.D)
             {
                 goRight = true;
                 row = 3;
@@ -456,25 +466,25 @@ namespace Sprite___Interactive_CS
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Down)
+            if (e.KeyData == Keys.S)
             {
                 goDown = false;
                 tmrProf.Stop();
             }
 
-            if (e.KeyData == Keys.Up)
+            if (e.KeyData == Keys.W)
             {
                 goUp = false;
                 tmrProf.Stop();
             }
 
-            if (e.KeyData == Keys.Left)
+            if (e.KeyData == Keys.A)
             {
                 goLeft = false;
                 tmrProf.Stop();
             }
 
-            if (e.KeyData == Keys.Right)
+            if (e.KeyData == Keys.D)
             {
                 goRight = false;
                 tmrProf.Stop();

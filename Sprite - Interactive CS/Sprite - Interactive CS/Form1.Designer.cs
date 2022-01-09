@@ -32,6 +32,7 @@
             this.tmrProf = new System.Windows.Forms.Timer(this.components);
             this.tmrExplode = new System.Windows.Forms.Timer(this.components);
             this.pnlMayinlar = new System.Windows.Forms.Panel();
+            this.pnlGraphics = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTimeShower = new System.Windows.Forms.Label();
@@ -68,9 +69,19 @@
             this.pnlMayinlar.ForeColor = System.Drawing.Color.Gold;
             this.pnlMayinlar.Location = new System.Drawing.Point(87, 174);
             this.pnlMayinlar.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.pnlMayinlar.Name = "pnlMayınlar";
+            this.pnlMayinlar.Name = "pnlMayinlar";
             this.pnlMayinlar.Size = new System.Drawing.Size(433, 192);
             this.pnlMayinlar.TabIndex = 1;
+            // 
+            // pnlGraphics
+            // 
+            this.pnlGraphics.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.pnlGraphics.BackColor = System.Drawing.Color.Transparent;
+            this.pnlGraphics.Location = new System.Drawing.Point(0, 0);
+            this.pnlGraphics.Name = "pnlGraphics";
+            this.pnlGraphics.Size = new System.Drawing.Size(1300, 1000);
+            this.pnlGraphics.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGraphics_Paint);
+            this.pnlGraphics.TabIndex = 6;
             // 
             // MenuToolStripMenuItem
             // 
@@ -127,6 +138,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnlMayinlar);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pnlGraphics);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ForeColor = System.Drawing.Color.Black;
             this.MainMenuStrip = this.menuStrip1;
@@ -147,6 +159,7 @@
         private System.Windows.Forms.Timer tmrProf;
         private System.Windows.Forms.Timer tmrExplode;
         private System.Windows.Forms.Panel pnlMayinlar;
+        private System.Windows.Forms.Panel pnlGraphics;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem MenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuOyunToolStripMenuItem;
