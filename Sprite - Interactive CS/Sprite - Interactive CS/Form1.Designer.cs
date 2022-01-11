@@ -32,13 +32,12 @@
             this.tmrProf = new System.Windows.Forms.Timer(this.components);
             this.tmrExplode = new System.Windows.Forms.Timer(this.components);
             this.pnlMayinlar = new System.Windows.Forms.Panel();
-            this.pnlGraphics = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTimeShower = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuOyunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOyunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,16 +52,6 @@
             this.tmrExplode.Interval = 20;
             this.tmrExplode.Tick += new System.EventHandler(this.tmrExplode_Tick);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1362, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // pnlMayinlar
             // 
             this.pnlMayinlar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -72,31 +61,6 @@
             this.pnlMayinlar.Name = "pnlMayinlar";
             this.pnlMayinlar.Size = new System.Drawing.Size(433, 192);
             this.pnlMayinlar.TabIndex = 1;
-            // 
-            // pnlGraphics
-            // 
-            this.pnlGraphics.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.pnlGraphics.BackColor = System.Drawing.Color.Transparent;
-            this.pnlGraphics.Location = new System.Drawing.Point(0, 0);
-            this.pnlGraphics.Name = "pnlGraphics";
-            this.pnlGraphics.Size = new System.Drawing.Size(1300, 1000);
-            this.pnlGraphics.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGraphics_Paint);
-            this.pnlGraphics.TabIndex = 6;
-            // 
-            // MenuToolStripMenuItem
-            // 
-            this.MenuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuOyunToolStripMenuItem});
-            this.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem";
-            this.MenuToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.MenuToolStripMenuItem.Text = "Menu";
-            // 
-            // menuOyunToolStripMenuItem
-            // 
-            this.menuOyunToolStripMenuItem.Name = "menuOyunToolStripMenuItem";
-            this.menuOyunToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.menuOyunToolStripMenuItem.Text = "Restart";
-            this.menuOyunToolStripMenuItem.Click += new System.EventHandler(this.menuOyunToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -127,22 +91,46 @@
             this.lblTimeShower.Size = new System.Drawing.Size(0, 25);
             this.lblTimeShower.TabIndex = 5;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1362, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // MenuToolStripMenuItem
+            // 
+            this.MenuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuOyunToolStripMenuItem});
+            this.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem";
+            this.MenuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.MenuToolStripMenuItem.Text = "Menu";
+            // 
+            // menuOyunToolStripMenuItem
+            // 
+            this.menuOyunToolStripMenuItem.Name = "menuOyunToolStripMenuItem";
+            this.menuOyunToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.menuOyunToolStripMenuItem.Text = "Restart";
+            this.menuOyunToolStripMenuItem.Click += new System.EventHandler(this.menuOyunToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 1500);
-            this.DoubleBuffered = true;
             this.Controls.Add(this.lblTimeShower);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pnlMayinlar);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.pnlGraphics);
+            this.Controls.Add(this.pnlMayinlar);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ForeColor = System.Drawing.Color.Black;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Mine Hero";
+            this.Name = "Form1";
             this.Text = "Mine Hero";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -159,7 +147,6 @@
         private System.Windows.Forms.Timer tmrProf;
         private System.Windows.Forms.Timer tmrExplode;
         private System.Windows.Forms.Panel pnlMayinlar;
-        private System.Windows.Forms.Panel pnlGraphics;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem MenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuOyunToolStripMenuItem;

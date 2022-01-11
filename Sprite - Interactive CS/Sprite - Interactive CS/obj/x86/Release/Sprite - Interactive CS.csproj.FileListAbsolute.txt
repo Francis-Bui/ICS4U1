@@ -5,3 +5,14 @@ C:\Users\DC\documents\visual studio 2010\Projects\Sprite - Interactive CS\Sprite
 C:\Users\DC\documents\visual studio 2010\Projects\Sprite - Interactive CS\Sprite - Interactive CS\bin\Release\Sprite - Interactive CS.pdb
 C:\Users\DC\documents\visual studio 2010\Projects\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite - Interactive CS.exe
 C:\Users\DC\documents\visual studio 2010\Projects\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite - Interactive CS.pdb
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\bin\Release\Sprite - Interactive CS.exe.manifest
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\bin\Release\Sprite - Interactive CS.application
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\bin\Release\Sprite - Interactive CS.exe
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\bin\Release\Sprite - Interactive CS.pdb
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite___Interactive_CS.Form1.resources
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite___Interactive_CS.Properties.Resources.resources
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite - Interactive CS.csproj.GenerateResource.Cache
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite - Interactive CS.exe.manifest
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite - Interactive CS.application
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite - Interactive CS.exe
+C:\Users\witzp\ICS4U1\Sprite - Interactive CS\Sprite - Interactive CS\obj\x86\Release\Sprite - Interactive CS.pdb

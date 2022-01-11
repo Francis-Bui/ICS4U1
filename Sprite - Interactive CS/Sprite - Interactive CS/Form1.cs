@@ -20,6 +20,7 @@ namespace Sprite___Interactive_CS
         int buttonNumberX;
         int buttonNumberY;
         int mineNumber;
+        int opacity;
         Game game;
         Timer timer;
         ElapsedTime elapsedTime;
@@ -38,7 +39,7 @@ namespace Sprite___Interactive_CS
         int count2, row2, col2, totalRows2, totalCols2, explodeWidth, explodeHeight;
 
         Boolean goUp, goDown, goLeft, goRight, explode;
-        Rectangle rProf, rBeaker, rExplode;
+        Rectangle rProf, rBeaker;
 
         public Form1()
         {
@@ -77,6 +78,7 @@ namespace Sprite___Interactive_CS
 
             rProf = new Rectangle(100, 100, profWidth, profHeight);
             rBeaker = new Rectangle(200, 200, imgBeaker.Width, imgBeaker.Height);
+            Rectangle[] rExplode = new Rectangle[100];
             profVel = 10;
 
             InitializeComponent();
@@ -94,12 +96,6 @@ namespace Sprite___Interactive_CS
             pnlMayinlar.Top = 85;
             pnlMayinlar.BackColor = Color.Black;
 
-            pnlGraphics.Size = new Size(1300, 1000);
-            pnlGraphics.Left = 0;
-            pnlGraphics.Top = 0;
-            pnlGraphics.BackColor = Color.Transparent;
-
-
             InitializeGame();
 
             int lblTop = 40;
@@ -109,8 +105,33 @@ namespace Sprite___Interactive_CS
             label1.Text = "Remaining Squares: " + game.NumberOfNotOpenedSafetySquare().ToString();
             label1.Location = new Point(panelWidth - label1.Width, lblTop);
             pnlMayinlar.Show();
-            pnlGraphics.Show();
         }
+
+        private void tmrExplode_Tick(object sender, EventArgs e)
+        {
+            // explosion animation code
+            if (explode == true)
+            {
+                tmrProf.Stop();
+
+                if (count2 >= (totalRows2 * totalCols2))
+                {
+                    count2 = 0;
+
+                    tmrProf.Start();
+                }
+
+                // do some math on "count" to give you row and column on the spritesheet
+                row2 = count2 / totalCols2;     // row is chosen by key
+                col2 = count2 % totalCols2;    // returns the remainder only (no integer)
+
+                // increment the counter
+                count2 += 1;
+
+                this.Refresh();
+            }
+        }
+
         private void tmrProf_Tick(object sender, EventArgs e)
         {
             if (goDown == true)
@@ -168,7 +189,6 @@ namespace Sprite___Interactive_CS
             game = new Game(buttonNumberX, buttonNumberY, mineNumber);
             allButtons = new Button[buttonNumberY, buttonNumberX];
             pnlMayinlar.Enabled = true;
-            pnlGraphics.Enabled = true;
 
             for (int i = 0; i < game.Squares.GetLength(0); i++)
             {
@@ -177,7 +197,7 @@ namespace Sprite___Interactive_CS
                     Button button = CreateButton(j, i);
                     squaresInButtons.Add(button, game.Square(j, i));
                     pnlMayinlar.Controls.Add(button);
-                    
+
                 }
             }
 
@@ -215,7 +235,6 @@ namespace Sprite___Interactive_CS
             pnlMayinlar.Controls.Clear();
             InitializeGame();
         }
-
 
         void ClickingOnSquares(object sender, MouseEventArgs e)
         {
@@ -341,12 +360,16 @@ namespace Sprite___Interactive_CS
         {
             foreach (Squares item in inLineMines)
             {
+                int i = 0;
                 Button willBeDetoneted = allButtons[item.Location.Y, item.Location.X];
-                rExplode = new Rectangle(item.Location.X, item.Location.Y, explodeWidth * 2, explodeHeight * 2);
+                willBeDetoneted.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonPaint);
+                //rExplode[i].Location = willBeDetoneted.Location;
                 willBeDetoneted.BackgroundImage = Properties.Resources.detonatedmine;
+                explode = true;
                 willBeDetoneted.Enabled = false;
                 willBeDetoneted.Update();
                 System.Threading.Thread.Sleep(50);
+                i++;
             }
         }
 
@@ -371,7 +394,7 @@ namespace Sprite___Interactive_CS
         // write number of how many more square must be clicked for to win
         void SetLabelText(int score)
         {
-            label1.Text = "Remaining Square : " + score.ToString();
+            label1.Text = "Remaining Squares: " + score.ToString();
         }
 
         // color list for squares those have neighborhood mine at least one
@@ -392,43 +415,11 @@ namespace Sprite___Interactive_CS
             return colors[mineNumber];
         }
 
-        private void tmrExplode_Tick(object sender, EventArgs e)
+        private void buttonPaint(object sender, PaintEventArgs e)
         {
-            // explosion animation code
             if (explode == true)
             {
-                tmrProf.Stop();
-
-                if (count2 >= (totalRows2 * totalCols2))
-                {
-                    count2 = 0;
-
-                    tmrProf.Start();
-                }
-
-                // do some math on "count" to give you row and column on the spritesheet
-                row2 = count2 / totalCols2;     // row is chosen by key
-                col2 = count2 % totalCols2;    // returns the remainder only (no integer)
-
-                // increment the counter
-                count2 += 1;
-
-                this.Refresh();
-            }
-        }
-
-        private void pnlGraphics_Paint(object sender, PaintEventArgs e)
-        {
-            e.Graphics.DrawImage(imgProf, rProf, new RectangleF(col * profWidth, row * profHeight, profWidth, profHeight), GraphicsUnit.Pixel);
-
-            if (explode == true)
-            {
-                e.Graphics.DrawImage(imgExplode, rExplode, new RectangleF(col2 * explodeWidth, row2 * explodeHeight, explodeWidth, explodeHeight), GraphicsUnit.Pixel);
-       
-            }
-             else
-            {
-                e.Graphics.DrawImage(imgBeaker, rBeaker);
+                //e.Graphics.DrawImage(imgExplode, rExplode[1], new RectangleF(col2 * explodeWidth, row2 * explodeHeight, explodeWidth, explodeHeight), GraphicsUnit.Pixel);
             }
         }
 
